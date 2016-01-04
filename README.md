@@ -5,25 +5,33 @@ Docker container for OpenVPN client/server.
 
 [![](https://badge.imagelayers.io/phlak/openvpn-client:latest.svg)](https://imagelayers.io/?images=phlak/openvpn-client:latest 'Get your own badge on imagelayers.io')
 
+This container will provide an OpenVPN tunnel for other containers to utilize via Docker's shared
+networking stack (i.e. `--net container:[NAME]`).
+
 
 ### Running the container
 
-Create an OpenVPN client/server configuration file named `openvpn.conf` in a directory anywhere on
-your host system. You should also place your client/server certs, keys and any additional files in
-this directory.
+Place your OpenVPN client/server configuration file in a directory on your host file system
+(i.e. `/srv/openvpn`) with the name `openvpn.conf`. You should also place your client/server certs,
+keys and any additional files required in this directory.
 
-    mkdir /local/dir
-    nano /local/dir/openvpn.conf
+Next run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
+config directory (`/etc/openvpn`):
 
-Then run the OpenVPN container and map your local config directory to a container volume:
+    docker run -d -v /srv/openvpn:/etc/openvpn --privileged --restart=always --name openvpn-client phlak/openvpn
 
-    docker run -d -v /local/dir:/etc/openvpn --privileged --restart=always --name openvpn-client phlak/openvpn
+Now you can start up your container with a shared network stack to the OpenVPN container:
+
+    docker run -d --net container:openvpn-client --name container-name ubuntu
+
+This container will now be reliant on the OpenVPN container's network stack for network access.
 
 
 ##### Optional Arguments
 
-`-p 1234:1234` - Map a port on the host OS to the container OS (Note: This will pass on through to
-                 containers when sharing this container's network stack with the `--net` parameter)
+`-p 1234:1234` - Map a port on the host OS to the OpenVPN container. This will pass ports through to
+                 containers that share the OpenVPN container's network stack (i.e. When started with
+                 the `--net container:openvpn-client` parameter).
 
 
 -----
