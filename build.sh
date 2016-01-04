@@ -2,7 +2,7 @@
 set -o errexit
 
 # Set the image name
-IMAGE_NAME="phlak/openvpn-client"
+IMAGE_NAME="phlak/openvpn"
 
 # Set script directory path
 SCRIPT_DIR="$(dirname $(readlink -f ${0}))"
