@@ -9,9 +9,6 @@ RUN mkdir -p ${VPN_CONF_DIR}
 RUN apk add --update ca-certificates openvpn \
     && rm -rf /var/cache/apk/*
 
-# Expose ports
-EXPOSE 443 943 1194/udp
-
 # Set working directory
 WORKDIR ${VPN_CONF_DIR}
 
