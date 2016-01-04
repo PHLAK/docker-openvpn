@@ -3,7 +3,7 @@ docker-openvpn
 
 Docker container for OpenVPN client/server.
 
-[![](https://badge.imagelayers.io/phlak/openvpn-client:latest.svg)](https://imagelayers.io/?images=phlak/openvpn-client:latest 'Get your own badge on imagelayers.io')
+[![](https://badge.imagelayers.io/phlak/openvpn:latest.svg)](https://imagelayers.io/?images=phlak/openvpn:latest 'Get your own badge on imagelayers.io')
 
 This container will provide an OpenVPN tunnel for other containers to utilize via Docker's shared
 networking stack (i.e. `--net container:[NAME]`).
