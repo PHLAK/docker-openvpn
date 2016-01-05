@@ -5,8 +5,8 @@ Docker container for OpenVPN client/server.
 
 [![](https://badge.imagelayers.io/phlak/openvpn:latest.svg)](https://imagelayers.io/?images=phlak/openvpn:latest 'Get your own badge on imagelayers.io')
 
-This container will provide an OpenVPN tunnel for other containers to utilize via Docker's shared
-networking stack (i.e. `--net container:[NAME]`).
+This container can run as an OpenVPN server or as an OpenVPN client and provide a VPN tunnel for
+other containers to utilize via Docker's shared networking stack (i.e. `--net container:[NAME]`).
 
 
 ### Running the container
@@ -15,7 +15,18 @@ Place your OpenVPN client/server configuration file in a directory on your host 
 (i.e. `/srv/openvpn`) with the name `openvpn.conf`. You should also place your client/server certs,
 keys and any additional files required in this directory.
 
-Next run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
+
+##### Running as an OpenVPN server
+
+Run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
+config directory (`/etc/openvpn`) and map ports to your host OS:
+
+    docker run -d -v /srv/openvpn:/etc/openvpn -p 443:443 -p 943:943 -p 1194:1194/udp --privileged --restart=always --name openvpn-server phlak/openvpn
+
+
+##### Running as an OpenVPN client
+
+Run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
 config directory (`/etc/openvpn`):
 
     docker run -d -v /srv/openvpn:/etc/openvpn --privileged --restart=always --name openvpn-client phlak/openvpn
