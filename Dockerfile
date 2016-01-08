@@ -2,15 +2,14 @@ FROM alpine:3.3
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Create OpenVPN conf directory
-ENV VPN_CONF_DIR /etc/openvpn
-RUN mkdir -p ${VPN_CONF_DIR}
+RUN mkdir -p /etc/openvpn
 
 # Install OpenVPN
 RUN apk add --update ca-certificates openvpn \
     && rm -rf /var/cache/apk/*
 
 # Set working directory
-WORKDIR ${VPN_CONF_DIR}
+WORKDIR /etc/openvpn
 
 # Defualt run command
-CMD openvpn --config ${VPN_CONF_DIR}/openvpn.conf --verb 3
+CMD ["openvpn", "--config", "/etc/openvpn/openvpn.conf", "--verb", "3"]
