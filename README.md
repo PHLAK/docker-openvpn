@@ -21,7 +21,7 @@ keys and any additional files required in this directory.
 Run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
 config directory (`/etc/openvpn`) and map ports to your host OS:
 
-    docker run -d -v /srv/openvpn:/etc/openvpn -p 443:443 -p 943:943 -p 1194:1194/udp --privileged --restart=always --name openvpn-server phlak/openvpn
+    docker run -d -v /srv/openvpn:/etc/openvpn -p 443:443 -p 943:943 -p 1194:1194/udp --privileged --name openvpn-server phlak/openvpn
 
 
 ##### Running as an OpenVPN client
@@ -29,20 +29,23 @@ config directory (`/etc/openvpn`) and map ports to your host OS:
 Run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
 config directory (`/etc/openvpn`):
 
-    docker run -d -v /srv/openvpn:/etc/openvpn --privileged --restart=always --name openvpn-client phlak/openvpn
+    docker run -d -v /srv/openvpn:/etc/openvpn --privileged --name openvpn-client phlak/openvpn
 
-Now you can start up your container with a shared network stack to the OpenVPN container:
+Now you can start up another container with a shared network stack to the OpenVPN container:
 
-    docker run -d --net container:openvpn-client --name container-name ubuntu
+    docker run -d --net container:openvpn-client --name container-name alpine
 
 This container will now be reliant on the OpenVPN container's network stack for network access.
 
 
-##### Optional Arguments
+##### Optional 'docker run' Arguments
 
-`-p 1234:1234` - Map a port on the host OS to the OpenVPN container. This will pass ports through to
-                 containers that share the OpenVPN container's network stack (i.e. When started with
-                 the `--net container:openvpn-client` parameter).
+`-p 1234:1234` - Map a port on the host OS to the OpenVPN container. When running as a client this
+                 will pass ports through to containers that share the OpenVPN container's network
+                 stack (i.e. When ran with the `--net container:openvpn-client` parameter).
+
+`--restart=always` - Always restart the container regardless of the exit status. See the Docker
+                     [restart policies](https://goo.gl/OI87rA) for additional details.
 
 
 ### Troubleshooting
