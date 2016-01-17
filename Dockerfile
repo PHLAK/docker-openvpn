@@ -11,4 +11,5 @@ RUN apk add --update openvpn && rm -rf /var/cache/apk/*
 WORKDIR /etc/config
 
 # Defualt run command
-CMD ["openvpn", "--config", "/etc/config/openvpn.conf", "--verb", "3", "--remap-usr1", "SIGTERM"]
+CMD ["openvpn", "--config", "/etc/config/openvpn.conf", "--verb", "3", "--remap-usr1", "SIGTERM", \
+     "--script-security", "2", "--up", "/etc/openvpn/up.sh", "--down-pre", "/etc/openvpn/down.sh"]
