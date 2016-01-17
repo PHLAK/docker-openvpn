@@ -12,4 +12,4 @@ RUN apk add --update ca-certificates openvpn \
 WORKDIR /etc/openvpn
 
 # Defualt run command
-CMD ["openvpn", "--config", "/etc/openvpn/openvpn.conf", "--verb", "3"]
+CMD ["openvpn", "--config", "/etc/openvpn/openvpn.conf", "--remap-usr1", "SIGTERM", "--verb", "3"]
