@@ -2,14 +2,13 @@ FROM alpine:3.3
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Create OpenVPN conf directory
-RUN mkdir -p /etc/openvpn
+RUN mkdir -p /etc/config
 
 # Install OpenVPN
-RUN apk add --update ca-certificates openvpn \
-    && rm -rf /var/cache/apk/*
+RUN apk add --update openvpn && rm -rf /var/cache/apk/*
 
 # Set working directory
-WORKDIR /etc/openvpn
+WORKDIR /etc/config
 
 # Defualt run command
-CMD ["openvpn", "--config", "/etc/openvpn/openvpn.conf", "--remap-usr1", "SIGTERM", "--verb", "3"]
+CMD ["openvpn", "--config", "/etc/config/openvpn.conf", "--verb", "3", "--remap-usr1", "SIGTERM"]
