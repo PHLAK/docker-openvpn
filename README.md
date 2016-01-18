@@ -19,17 +19,17 @@ keys and any additional files required in this directory.
 ##### Running as an OpenVPN server
 
 Run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
-config directory (`/etc/config`) and map ports to your host OS:
+config directory (`/vol/config`) and map ports to your host OS:
 
-    docker run -d -v /srv/openvpn:/etc/config -p 443:443 -p 943:943 -p 1194:1194/udp --privileged --name openvpn-server phlak/openvpn
+    docker run -d -v /srv/openvpn:/vol/config -p 443:443 -p 943:943 -p 1194:1194/udp --privileged --name openvpn-server phlak/openvpn
 
 
 ##### Running as an OpenVPN client
 
 Run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
-config directory (`/etc/config`):
+config directory (`/vol/config`):
 
-    docker run -d -v /srv/openvpn:/etc/config --privileged --name openvpn-client phlak/openvpn
+    docker run -d -v /srv/openvpn:/vol/config --privileged --name openvpn-client phlak/openvpn
 
 Now you can start up another container with a shared network stack to the OpenVPN container:
 
