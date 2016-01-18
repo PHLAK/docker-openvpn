@@ -44,7 +44,7 @@ This container will now be reliant on the OpenVPN container's network stack for 
                  will pass ports through to containers that share the OpenVPN container's network
                  stack (i.e. When ran with the `--net container:openvpn-client` parameter).
 
-`--restart=always` - Always restart the container regardless of the exit status. See the Docker
+`--restart always` - Always restart the container regardless of the exit status. See the Docker
                      [restart policies](https://goo.gl/OI87rA) for additional details.
 
 
@@ -60,7 +60,7 @@ container is running check you DNS name servers with:
 
 -----
 
-**Copyright (c) 2015 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
+**Copyright (c) 2016 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
