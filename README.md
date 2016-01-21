@@ -1,7 +1,7 @@
 docker-openvpn
 ==============
 
-Docker container for OpenVPN client/server.
+Docker image for OpenVPN client/server.
 
 [![](https://badge.imagelayers.io/phlak/openvpn:latest.svg)](https://imagelayers.io/?images=phlak/openvpn:latest 'Get your own badge on imagelayers.io')
 
