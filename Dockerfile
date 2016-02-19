@@ -7,10 +7,6 @@ RUN mkdir -p /vol/config
 # Install OpenVPN
 RUN apk add --update openvpn && rm -rf /var/cache/apk/*
 
-# Workaround to fix broken down script (see: http://goo.gl/nTfYHR)
-COPY files/down.sh /etc/openvpn/down.sh
-RUN chmod +x /etc/openvpn/down.sh
-
 # Set working directory
 WORKDIR /vol/config
 
