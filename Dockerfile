@@ -14,6 +14,6 @@ RUN chmod +x /etc/openvpn/down.sh
 # Set working directory
 WORKDIR /vol/config
 
-# Defualt run command
-CMD ["openvpn", "--config", "/vol/config/openvpn.conf", "--verb", "3", "--remap-usr1", "SIGTERM", \
-     "--script-security", "2", "--up", "/etc/openvpn/up.sh", "--down-pre", "/etc/openvpn/down.sh"]
+# Defualt entrypoint and run command
+ENTRYPOINT ["openvpn", "--config", "/vol/config/openvpn.conf", "--verb", "3", "--remap-usr1", "SIGTERM"]
+CMD ["--script-security", "2", "--up", "/etc/openvpn/up.sh", "--down", "/etc/openvpn/down.sh"]
