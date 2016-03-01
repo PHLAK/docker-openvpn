@@ -21,7 +21,7 @@ keys and any additional files required in this directory.
 Run the OpenVPN container and map your local config directory (`/srv/openvpn`) to the container
 config directory (`/vol/config`) and map ports to your host OS:
 
-    docker run -d -v /srv/openvpn:/vol/config -p 443:443 -p 943:943 -p 1194:1194/udp --privileged --name openvpn-server phlak/openvpn
+    docker run -d -v /srv/openvpn:/vol/config -p 443:443 -p 943:943 -p 1194:1194/udp --privileged --name openvpn-server phlak/openvpn --server [NETWORK] [NETMASK]
 
 
 ##### Running as an OpenVPN client
