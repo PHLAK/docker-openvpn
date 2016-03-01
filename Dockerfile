@@ -1,11 +1,14 @@
 FROM alpine:3.3
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
+# Define OpenVPN version
+ENV OVPN_VERSION 2.3.8-r2
+
 # Create OpenVPN conf directory
 RUN mkdir -p /vol/config
 
 # Install OpenVPN
-RUN apk add --update openvpn && rm -rf /var/cache/apk/*
+RUN apk add --update openvpn=${OVPN_VERSION} && rm -rf /var/cache/apk/*
 
 # Set working directory
 WORKDIR /vol/config
