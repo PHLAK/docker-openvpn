@@ -59,10 +59,10 @@ container is running check you DNS name servers with:
 
     docker exec transmission-vpn cat /etc/resolv.conf
 
-Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/Stash/issues).
+Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/docker-openvpn/issues).
 
 
 Copyright
 ---------
 
-This project is liscensed under the [MIT License](https://github.com/PHLAK/Stash/blob/master/LICENSE).
+This project is liscensed under the [MIT License](https://github.com/PHLAK/docker-openvpn/blob/master/LICENSE).
