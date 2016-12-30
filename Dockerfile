@@ -2,7 +2,7 @@ FROM alpine:3.5
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Define OpenVPN version
-ARG OVPN_VERSION=2.3.11-r0
+ARG OVPN_VERSION=2.3.14-r0
 
 # Create OpenVPN conf directory
 RUN mkdir -p /vol/config
