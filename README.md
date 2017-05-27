@@ -65,4 +65,4 @@ Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/docker
 Copyright
 ---------
 
-This project is liscensed under the [MIT License](https://github.com/PHLAK/docker-openvpn/blob/master/LICENSE).
+This project is licensed under the [MIT License](https://github.com/PHLAK/docker-openvpn/blob/master/LICENSE).
