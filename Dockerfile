@@ -1,5 +1,5 @@
 FROM alpine:3.9
-MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
+LABEL maintainer="Chris Kankiewicz <Chris@ChrisKankiewicz.com>"
 
 # Define OpenVPN version
 ARG OVPN_VERSION=2.4.6-r4
