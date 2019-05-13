@@ -8,7 +8,8 @@ Docker image for OpenVPN client/server.
 This container can run as an OpenVPN server or as an OpenVPN client and provide a VPN tunnel for
 other containers to utilize via Docker's shared networking stack (i.e. `--net container:[NAME]`).
 
-Like this project?
+#### Like this project?
+
 [![Join the community on Spectrum](https://img.shields.io/badge/Join_the_community-PHLAKNET-7a15fe.svg)](https://spectrum.chat/phlaknet)
 [![Become a Patron](https://img.shields.io/badge/Become_a-Patron-f96854.svg)](https://patreon.com/PHLAK)
 [![One-time Donation](https://img.shields.io/badge/Make_a-Donation-006bb6.svg)](https://paypal.me/ChrisKankiewicz)
