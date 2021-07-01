@@ -1,4 +1,4 @@
-FROM alpine:3.13.4
+FROM alpine:3.14.0
 LABEL maintainer="Chris Kankiewicz <Chris@ChrisKankiewicz.com>"
 
 # Define OpenVPN version
