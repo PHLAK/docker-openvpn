@@ -1,8 +1,8 @@
-FROM alpine:3.14.1
+FROM alpine:3.15.0
 LABEL maintainer="Chris Kankiewicz <Chris@ChrisKankiewicz.com>"
 
 # Define OpenVPN version
-ARG OVPN_VERSION=2.5.2-r0
+ARG OVPN_VERSION=2.5.4-r0
 
 # Create OpenVPN conf directory
 RUN mkdir -p /vol/config
